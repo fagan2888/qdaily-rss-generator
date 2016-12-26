@@ -1,9 +1,9 @@
 from django.db import models
-import datetime
+from django.utils.timezone import now
 
 class Article(models.Model):
     id = models.IntegerField(primary_key=True)
     title = models.TextField()
     url = models.URLField()
     description = models.TextField()
-    crawled = models.DateField(default=datetime.date.today)
+    crawled = models.DateTimeField(default=now())
