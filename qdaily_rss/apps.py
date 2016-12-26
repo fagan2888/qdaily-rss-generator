@@ -11,7 +11,7 @@ class LatestEntriesFeed(Feed):
     description = '自制全文 RSS'
 
     def items(self):
-        return Article.objects.order_by('crawled')[:5]
+        return Article.objects.order_by('crawled')[:30]
 
     def item_title(self, item):
         return item.title
