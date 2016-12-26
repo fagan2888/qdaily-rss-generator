@@ -27,4 +27,3 @@ class Command(BaseCommand):
                 content = str(soup.findAll('div', {'class': 'detail'})[0])
                 title = soup.title.string
                 Article.objects.update_or_create(id=item['id'], title=title, url=item['url'], description=content)
-                pass
