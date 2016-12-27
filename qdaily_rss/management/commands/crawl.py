@@ -26,6 +26,6 @@ class Command(BaseCommand):
                 soup = BeautifulSoup(page.read())
                 content = str(soup.findAll('div', {'class': 'detail'})[0])
                 title = soup.title.string
-                Article.objects.update_or_create(id=item['id'],
+                Article.objects.get_or_create(id=item['id'],
                                                  defaults={'title': title, 'url': item['url'], 'description': content}
                                                  )
