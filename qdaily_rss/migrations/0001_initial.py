@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('title', models.TextField()),
                 ('url', models.URLField()),
                 ('description', models.TextField()),
-                ('crawled', models.DateTimeField(default=datetime.datetime(2016, 12, 26, 11, 18, 16, 432015, tzinfo=utc))),
+                ('crawled', models.DateTimeField()),
             ],
         ),
     ]

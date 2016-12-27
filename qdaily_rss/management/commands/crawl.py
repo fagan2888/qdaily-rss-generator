@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 from bs4 import BeautifulSoup
 import urllib
 import requests
+from django.utils.timezone import now
 import re
 
 from qdaily_rss.models import Article
@@ -27,5 +28,5 @@ class Command(BaseCommand):
                 content = str(soup.findAll('div', {'class': 'detail'})[0])
                 title = soup.title.string
                 Article.objects.get_or_create(id=item['id'],
-                                                 defaults={'title': title, 'url': item['url'], 'description': content}
+                                                 defaults={'title': title, 'url': item['url'], 'description': content, 'crawled': now()}
                                                  )
